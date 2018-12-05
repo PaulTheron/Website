@@ -14,16 +14,82 @@
 
 		<!-- Modal content -->
 		<div class="modal-content">
+
+			<!-- en-tête du modal -->
 	    	<div class="modal-header">
 	      		<span class="close">&times;</span>
 	      		<h1 id="modalTitle">Modal Header</h1>
 	    	</div>
+
+	    	<!-- body du modal -->
 	    	<div class="modal-body">
-	      		<p id="p1">Some text in the Modal Body</p>
-	      		<p id="p2">Some other text...</p>
-	      		<p id="p3">...</p>
-	      		<p id="info_sur_la_pièce"></p>
+
+	    		<!-- cadre avec la température et les actions possibles -->
+	    		<div id="temp">
+	    			<!-- section contenant l'image -->
+	    			<section>
+	    				<img src="Design/Pictures/thermometer.png">
+	    			</section>
+	    			<!-- section contenant la valeur (température, taux d'humidité, etc.) -->
+	    			<section class="value">
+	    				<h2 id="tempVal"></h2>
+	    			</section>
+	    			<!-- section avec le bouton de réglage -->
+	    			<section class="set">
+	    				
+	    			</section>
+	    		</div>
+
+	    		<!-- cadre avec la luminosité et les actions possibles -->
+	    		<div id="lum">
+	    			<!-- section contenant l'image -->
+	    			<section>
+	    				<img src="Design/Pictures/light_bulb.png">
+	    			</section>
+	    			<!-- section contenant la valeur (température, taux d'humidité, etc.) -->
+	    			<section class="value">
+	    				<h2 id="lumVal"></h2>
+	    			</section>
+	    			<!-- section avec le bouton de réglage -->
+	    			<section class="set">
+	    				
+	    			</section>
+	    		</div>
+
+	    		<!-- cadre avec l'humidité et les actions possibles -->
+	    		<div id="hum">
+	    			<!-- section contenant l'image -->
+	    			<section>
+	    				<img src="Design/Pictures/water_drop.png">
+	    			</section>
+	    			<!-- section contenant la valeur (température, taux d'humidité, etc.) -->
+	    			<section class="value">
+	    				<h2 id="humVal"></h2>
+	    			</section>
+	    			<!-- section avec le bouton de réglage -->
+	    			<section class="set">
+	    				
+	    			</section>
+	    		</div>
+
+	    		<!-- cadre avec la télévision et les actions possibles -->
+	    		<div id="tv">
+	    			<!-- section contenant l'image -->
+	    			<section>
+	    				<img src="Design/Pictures/tv.png">
+	    			</section>
+	    			<!-- section contenant la valeur (température, taux d'humidité, etc.) -->
+	    			<section class="value">
+	    				<h2 id="tvVal"></h2>
+	    			</section>
+	    			<!-- section avec le bouton de réglage -->
+	    			<section class="set">
+	    				
+	    			</section>
+	    		</div>
+
 	    	</div>
+
 	    	<div class="modal-footer">
 	    		<h3>Modal footer</h3>
 	    	</div>
@@ -32,23 +98,23 @@
 	</div>
 
 
+	<!-- Haut de la page avec le nom de la propriété -->
 	<header class="pageTop">
 		<a href="index.php?action=see_choose_house_page">Retour</a>	
-		<!-- <?php $name = htmlspecialchars($_GET['property_name']); ?> -->
-		<!-- <h1>Maison</h1> -->
-		<h1><?php echo htmlspecialchars($_GET['propertyName']); ?></h1>
+		<h1><?php echo htmlspecialchars($_SESSION['propertyName']); ?></h1>
 	</header>
 
 
+	<!-- Partie de la page avec les pièces -->
 	<div class="rooms">
 
 		<section id="salon" class="roomInformation">
 			<div class="div1">
 				<h1 id="titre">Salon</h1>
-				<li id="tempSalon">Température : 20°C</li>
-				<li id="lumSalon">Luminosité : lumSalon</li>
-				<li>Humidité : humSalon</li>
-				<li id="tvSalon">Télévision : allumée</li>
+				<li>Température : <span id="tempSalon">20°C</span></li>
+				<li>Luminosité : <span id="lumSalon">lumSalon</span></li>
+				<li>Humidité : <span id="humSalon">humSalon</span></li>
+				<li>Télévision : <span id="tvSalon">allumée</span></li>
 			</div>
 			<div class="div2"> 
 				<img src="Design/Pictures/salon.jpg">
@@ -59,9 +125,9 @@
 		<section id="salle_a_manger" class="roomInformation">
 			<div class="div1">
 				<h1 id="titre">Salle à manger</h1>
-				<li id="tempSAM">Température : 20°C</li>
-				<li id="lumSAM">Luminosité : lumSAM</li>
-				<li>Humidité : humSAM</li>
+				<li>Température : <span id="tempSAM">20°C</span></li>
+				<li>Luminosité : <span id="lumSAM">lumSAM</span></li>
+				<li>Humidité : <span id="humSAM">humSAM</span></li>
 			</div>
 			<div class="div2"> 
 				<img src="Design/Pictures/salle_a_manger.jpg">
@@ -74,9 +140,9 @@
 		<section id="chambre" class="roomInformation">
 			<div class="div1">
 				<h1 id="titre">Chambre</h1>
-				<li id="tempChambre">Température : 21°C</li>
-				<li id="lumChambre">Luminosité : lumChambre</li>
-				<li>Humidité : humChambre</li>
+				<li>Température : <span id="tempChambre">21°C</span></li>
+				<li>Luminosité : <span id="lumChambre">lumChambre</span></li>
+				<li>Humidité : <span id="humChambre">humChambre</span></li>
 			</div>
 			<div class="div2"> 
 				<img src="Design/Pictures/chambre.jpg">
@@ -86,9 +152,9 @@
 		<section id="salle_de_bain" class="roomInformation">
 			<div class="div1">
 				<h1 id="titre">Salle de bain</h1>
-				<li id="tempSDB">Température : 20°C</li>
-				<li id="lumSDB">Luminosité : lum</li>
-				<li id="humSDB">Humidité : humSDB</li>
+				<li>Température : <span id="tempSDB">20°C</span></li>
+				<li>Luminosité : <span id="lumSDB">lumSDB</span></li>
+				<li>Humidité : <span id="humSDB">humSDB</span></li>
 			</div>
 			<div class="div2"> 
 				<img src="Design/Pictures/salle_de_bain.jpg">
@@ -96,6 +162,11 @@
 		</section>
 	</div>
 
+	<ul>
+        <?php while ($room = $rooms->fetch()) { ?>
+            <li><?php echo $room["name"]; ?></li>
+        <?php } ?>
+    </ul>
 
 	<!--  -->
 	

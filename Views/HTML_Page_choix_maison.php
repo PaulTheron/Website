@@ -22,6 +22,7 @@
 			
 			
         	<?php foreach ($propertiesArray as $property) {
+        		$id = $property['id'];
         		$name = $property['name']; 
         		$type = $property['property_type'];
    				$srcName = "Design/Pictures/".$type.".jpg";
@@ -29,7 +30,7 @@
 				<!-- Section correspondant à chaque propriété -->
    				<section class="imageSection">
 					<!-- <a href="index.php?action=see_info_house_page"><img src=<?php echo $srcName; ?>><br><h2><?php echo $name; ?></h2></a> -->
-					<a href=<?php echo "index.php?action=see_info_house_page&propertyName=".$name; ?>><img src=<?php echo $srcName; ?>><br><h2><?php echo $name; ?></h2></a>
+					<a href=<?php echo "index.php?action=see_info_house_page&propertyId=$id&propertyName=$name"; ?>><img src=<?php echo $srcName; ?>><br><h2><?php echo $name; ?></h2></a>
 				</section>
 			<?php } ?>
 			
@@ -48,11 +49,6 @@
 		</div>
 	
 	</div>
-	<ul>
-		<?php foreach ($properties as $property) { ?>
-			<p><?php echo $property["name"]." - ".$property["property_type"]; ?></p>
-		<?php } ?>
-	</ul>
 	
 </body>
 

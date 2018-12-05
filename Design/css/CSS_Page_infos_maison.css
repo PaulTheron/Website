@@ -57,7 +57,7 @@ body {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 120px; /* Location of the box */
+    padding-top: 60px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -122,8 +122,40 @@ body {
   text-align: center;
 }
 /* Réglages du body du modal */
-.modal-body {
-    padding: 2px 16px;
+.modal-body div {
+    /* de base on cache les div pour n'afficher dans le js que ceux qu'on veut */
+    display: none;
+
+    padding: 7px 15px 7px 15px;
+}
+.modal-body .value {
+    width: 60%;
+    
+    position: relative;
+}
+.modal-body .set {
+    width: 40%;
+    background-color: black;
+}
+.modal-body div h2 {
+    /*justify-content: center;*/
+
+    text-align: center;
+
+    margin-top: 0;
+    margin-left: 10%;
+    position: absolute;               
+    top: 50%;                         
+    transform: translate(0, -50%)
+
+}
+.modal-body img {
+    border: solid 2px black;
+    border-radius: 3px;
+
+    /*margin: 7px 0px 7px 15px;*/
+
+    padding: 3px;
 }
 /* Réglages du footer du modal */
 .modal-footer {

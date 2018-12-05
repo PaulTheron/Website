@@ -10,6 +10,10 @@ span.onclick = function() {
 window.onclick = function(event) {
     if (event.target == modal) {
 		modal.style.display = "none";
+		document.getElementById("temp").style.display = "none";
+		document.getElementById("lum").style.display = "none";
+		document.getElementById("hum").style.display = "none";
+		document.getElementById("tv").style.display = "none";
     }
 }
 
@@ -19,9 +23,9 @@ const salon = document.getElementById("salon");
 // on crée une fonction appelée lors du clique
 salon.addEventListener("click", clickOnLivingR);
 // on récupère tous les <li> du salon
-var x = salon.getElementsByTagName("li");
+var r1 = salon.getElementsByTagName("span");
 
-/* on décrit cette fonction */
+// on décrit cette fonction
 function clickOnLivingR(event) {
 	console.log("clique sur le salon");
 	console.log("Type de l'event");
@@ -32,20 +36,24 @@ function clickOnLivingR(event) {
 	// Quand l'utilisateur clique sur la section, le modal apparaît 
 	modal.style.display = "block";
 	document.getElementById("modalTitle").innerHTML = "Salon";
-	document.getElementById("p1").innerHTML = document.getElementById("tempSalon").innerHTML;
-	document.getElementById("p2").innerHTML = document.getElementById("lumSalon").innerHTML;
-	document.getElementById("p3").innerHTML = document.getElementById("tvSalon").innerHTML;
 
-	document.getElementById("info_sur_la_pièce").innerHTML 
-	= 'La température dans la pièce est de ' + x[0].innerHTML +
-	', la luminosité est ' + x[1].innerHTML +
-	'. La TV est ' + x[2].innerHTML + '.';
+	// les icônes apparaissent également
+	document.getElementById("temp").style.display = "flex";
+	document.getElementById("lum").style.display = "flex";
+	document.getElementById("hum").style.display = "flex";
+	document.getElementById("tv").style.display = "flex";
+
+	document.getElementById("tempVal").innerHTML = r1[0].innerHTML;
+	document.getElementById("lumVal").innerHTML = r1[1].innerHTML;
+	document.getElementById("humVal").innerHTML = r1[2].innerHTML;
+	document.getElementById("tvVal").innerHTML = r1[3].innerHTML;
 }
 
 
 // idem pour la salle à manger
 const salleAManger = document.getElementById("salle_a_manger");
 salleAManger.addEventListener("click", clickOnDiningR);
+var r2 = salleAManger.getElementsByTagName("span");
 
 function clickOnDiningR(event) {
 	console.log("clique sur la salle a manger");
@@ -57,15 +65,22 @@ function clickOnDiningR(event) {
 	// Quand l'utilisateur clique sur la section, le modal apparaît
 	modal.style.display = "block";
 	document.getElementById("modalTitle").innerHTML = "Salle à manger";
-	document.getElementById("p1").innerHTML = document.getElementById("tempSAM").innerHTML;
-	document.getElementById("p2").innerHTML = document.getElementById("lumSAM").innerHTML;
-	document.getElementById("p3").style.display = "none";
+
+	// les icônes apparaissent également
+	document.getElementById("temp").style.display = "flex";
+	document.getElementById("lum").style.display = "flex";
+	document.getElementById("hum").style.display = "flex";
+
+	document.getElementById("tempVal").innerHTML = r2[0].innerHTML;
+	document.getElementById("lumVal").innerHTML = r2[1].innerHTML;
+	document.getElementById("humVal").innerHTML = r2[2].innerHTML;
 }
 
 
 // et pour la chambre
 const chambre = document.getElementById("chambre");
 chambre.addEventListener("click", clickOnBedR);
+var r3 = chambre.getElementsByTagName("span");
 
 function clickOnBedR(event) {
 	console.log("clique sur la chambre");
@@ -77,14 +92,21 @@ function clickOnBedR(event) {
 	// Quand l'utilisateur clique sur la section, le modal apparaît
 	modal.style.display = "block";
 	document.getElementById("modalTitle").innerHTML = "Chambre";
-	document.getElementById("p1").innerHTML = document.getElementById("tempChambre").innerHTML;
-	document.getElementById("p2").innerHTML = document.getElementById("lumChambre").innerHTML;
-	document.getElementById("p3").style.display = "none";
+
+	// les icônes apparaissent également
+	document.getElementById("temp").style.display = "flex";
+	document.getElementById("lum").style.display = "flex";
+	document.getElementById("hum").style.display = "flex";
+
+	document.getElementById("tempVal").innerHTML = r3[0].innerHTML;
+	document.getElementById("lumVal").innerHTML = r3[1].innerHTML;
+	document.getElementById("humVal").innerHTML = r3[2].innerHTML;
 }
 
 // et pour la salle de bain
 const salleDeBain = document.getElementById("salle_de_bain");
 salleDeBain.addEventListener("click", clickOnBathR);
+var r4 = salleDeBain.getElementsByTagName("span");
 
 function clickOnBathR(event) {
 	console.log("clique sur la salle de bain");
@@ -95,8 +117,14 @@ function clickOnBathR(event) {
 
 	// Quand l'utilisateur clique sur la section, le modal apparaît
 	modal.style.display = "block";
-	document.getElementById("modalTitle").innerHTML = "Salle de bain";
-	document.getElementById("p1").innerHTML = document.getElementById("tempSDB").innerHTML;
-	document.getElementById("p2").innerHTML = document.getElementById("lumSDB").innerHTML;
-	document.getElementById("p3").innerHTML = document.getElementById("tvSDB").innerHTML;
+	document.getElementsByTagName("modalTitle").innerHTML = "Salle de bain";
+
+	// les icônes apparaissent également
+	document.getElementById("temp").style.display = "flex";
+	document.getElementById("lum").style.display = "flex";
+	document.getElementById("hum").style.display = "flex";
+
+	document.getElementById("tempVal").innerHTML = r4[0].innerHTML;
+	document.getElementById("lumVal").innerHTML = r4[1].innerHTML;
+	document.getElementById("humVal").innerHTML = r4[2].innerHTML;
 }

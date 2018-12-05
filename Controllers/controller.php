@@ -7,12 +7,19 @@ require "Models/model.php";
  * Cette fonction définit une variable $users dans laquelle on va stocker toutes les propriétés d'un utilisateur
  * Ces propriétés sont stockées dans la base de données, donc pour les récupérer on fait appel à une fonction du modèle
  */
+// Cette fonction permet d'afficher les propriétés d'un utilisateur
 function displayUserProperties() {
+    // on stocke dans $properties les propriétés et ce qu'elles contiennent 
     $properties = getProperties();
-    $propertiesArray = []; 
+    // on crée un tableau vide...
+    $propertiesArray = [];
+    // ...et un index 
     $it = 0;
+    // on parcourt $properties
     while ($property = $properties->fetch()) {
-    	$propertiesArray[$it] = $property; 
+        // on affecte à chaque ligne de $propertiesArray ce qu'il y a dans $properties, soit le nom et le type de la propriété
+    	$propertiesArray[$it] = $property;
+        // on augmente de 1 l'index 
     	$it += 1;
     }
 
@@ -20,7 +27,8 @@ function displayUserProperties() {
 }
 
 // fonction qui demande l'affichage de la page de choix de maison ( page d'accueil en gros )
-/*function seeChooseHousePage() {
+/*
+function seeChooseHousePage() {
      require "Views/HTML_Page_choix_maison.php";
 }
 */
@@ -46,7 +54,16 @@ function addPropertyMethod() {
 }
 
 // Affichage de la page pour consulter les infos relatives à une maison
+/*
 function seeInfoHousePage() {
+    require "Views/HTML_Page_infos_maison.php";
+}
+*/
+function displayHouseRooms() {
+    if (isset($_GET['propertyName'])) {
+        $_SESSION['propertyName'] = $_GET['propertyName'];
+    }
+    $rooms = getRooms();
     require "Views/HTML_Page_infos_maison.php";
 }
 

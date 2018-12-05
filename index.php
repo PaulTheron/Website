@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 require "Controllers/controller.php";
-
+session_start();
 
 if (isset($_GET["action"])) {
     $action = htmlspecialchars($_GET["action"]); // Petite fonction de sécurité
@@ -30,7 +30,8 @@ if (isset($_GET["action"])) {
 
         // Page pour voir les infos sur une maison
         case "see_info_house_page":
-            seeInfoHousePage();
+            //seeInfoHousePage();
+            displayHouseRooms();
             break;
 
         // Page pour programmer un scénario

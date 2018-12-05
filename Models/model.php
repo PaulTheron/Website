@@ -28,6 +28,7 @@ function getProperties()
         return $req;
 }
 
+// fonction pour l'ajout de propritétés
 function insertProperty($name, $property_type)
 {
     $db = dbConnect();
@@ -40,3 +41,14 @@ function insertProperty($name, $property_type)
     $req->execute();
     $req->closeCursor();
 }
+
+function getRooms() {
+
+	$db = dbConnect();
+	$req = $db->prepare("SELECT * FROM houses AS h JOIN HouseRooms AS hR ON h.id = hR.id_house JOIN rooms AS r ON r.id = hR.id_room WHERE h.name = :housename");
+	$req->execute(array('housename' => $_GET['propertyName']));
+
+	return $req;
+}
+
+
